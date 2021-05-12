@@ -4,7 +4,8 @@ main: mdfile
 		--csl chinese-gb7714-2015-numeric.csl \
 		--bibliography ref.bib -M reference-section-title="参考文献" \
 		-M link-citations=true --reference-doc templete.dotx \
-		input.md -o build/output.docx
+		--resource-path="./src" \
+		src/input.md -o build/output.docx
 
 mdfile: 
 	python preprocess.py
