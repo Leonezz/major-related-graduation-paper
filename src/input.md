@@ -7,13 +7,13 @@ tablenos-caption-name: 表
 ---
 摘要
 
-　　随着我国经济社会的发展和人民生活水平的不断提高，城市垃圾的产生速度也在飞速增长，如何妥善处理和利用城市生活垃圾成为国家和地方政府部门的重要议题。垃圾桶作为居民生活垃圾与垃圾处理厂之间的接口，在垃圾回收中承担重要的角色。目前部分城市已在部分社区部署智能化的垃圾桶，取得了较好的效果。通过智能垃圾桶终端实时获取垃圾桶状态，可以极大地提高社区垃圾桶地清理和回收效率，提高管理便捷性。
+随着我国经济社会的发展和人民生活水平的不断提高，城市垃圾的产生速度也在飞速增长，如何妥善处理和利用城市生活垃圾成为国家和地方政府部门的重要议题。垃圾桶作为居民生活垃圾与垃圾处理厂之间的接口，在垃圾回收中承担重要的角色。目前部分城市已在部分社区部署智能化的垃圾桶，取得了较好的效果。通过智能垃圾桶终端实时获取垃圾桶状态，可以极大地提高社区垃圾桶地清理和回收效率，提高管理便捷性。
 
-　　本设计以STM32F103RET6单片机作为控制核心，加之温湿度传感器，称重传感器，桶满（红外）传感器等多种传感器和推杆等外设，实现了实时采集垃圾桶内部的状态信息，且可通过推杆控制桶盖的自动开启，构成了一个集状态监测和智能控制功能为一体的智能垃圾桶数据采集和控制终端。
+本设计以STM32F103RET6单片机作为控制核心，加之温湿度传感器，称重传感器，桶满（红外）传感器等多种传感器和推杆等外设，实现了实时采集垃圾桶内部的状态信息，且可通过推杆控制桶盖的自动开启，构成了一个集状态监测和智能控制功能为一体的智能垃圾桶数据采集和控制终端。
 
-　　终端系统通过传感器采集的数据暂存在单片机的内部RAM中，运行在安卓系统上的上位机系统通过Modbus协议与之通信以读取垃圾桶状态数据。上位机系统将垃圾桶状态数据可视化处理并以一定时间间隔向服务端上传，服务端根据通信协议解析数据，并将之存储在数据库。
+终端系统通过传感器采集的数据暂存在单片机的内部RAM中，运行在安卓系统上的上位机系统通过Modbus协议与之通信以读取垃圾桶状态数据。上位机系统将垃圾桶状态数据可视化处理并以一定时间间隔向服务端上传，服务端根据通信协议解析数据，并将之存储在数据库。
 
-　　数据库中存储的垃圾桶实时状态数据可以驱动多种应用，本设计平实现的“智慧城市垃圾桶信息化台”就是一种。平台将来自各垃圾桶的状态数据在地图上可视化，形成一个直观的垃圾桶状态监测系统，方便管理人员实时掌握垃圾桶状态。当有垃圾桶状态异常或功能故障时，平台还会主动发出警告提醒工作人员对其进行检查，大大提高了城市垃圾桶维护效率。
+数据库中存储的垃圾桶实时状态数据可以驱动多种应用，本设计平实现的“智慧城市垃圾桶信息化台”就是一种。平台将来自各垃圾桶的状态数据在地图上可视化，形成一个直观的垃圾桶状态监测系统，方便管理人员实时掌握垃圾桶状态。当有垃圾桶状态异常或功能故障时，平台还会主动发出警告提醒工作人员对其进行检查，大大提高了城市垃圾桶维护效率。
 
 　　同时本设计结合积分系统，对于积极分类投放生活垃圾的居民予以积分奖励，可以大大提高居民的垃圾分类意识和积极性，将垃圾分类回收落到实处。
 
@@ -23,15 +23,15 @@ tablenos-caption-name: 表
 
 ABSTRACT
 
-　　With the development of the economy and society and the continuous improvement of people’s living standards, the rate of urban waste generation is also rapidly increasing. How to properly handle and utilize urban domestic waste has become an important issue for national and local government departments. As the interface between the household garbage and the garbage treatment plant, the trash can plays an important role in the garbage collection process. At present, some cities have deployed intelligent trash cans in some communities and achieved good results. Obtaining real time status of the trash can through the smart trash can terminal can greatly improve the efficiency of cleaning and recycling the trash can in the community, and improve the management convenience. 
+With the development of the economy and society and the continuous improvement of people’s living standards, the rate of urban waste generation is also rapidly increasing. How to properly handle and utilize urban domestic waste has become an important issue for national and local government departments. As the interface between the household garbage and the garbage treatment plant, the trash can plays an important role in the garbage collection process. At present, some cities have deployed intelligent trash cans in some communities and achieved good results. Obtaining real time status of the trash can through the smart trash can terminal can greatly improve the efficiency of cleaning and recycling the trash can in the community, and improve the management convenience. 
 　　
-　　This design uses STM32F103RET6 microcontroller as the control core,  with temperature and humidity sensors, weighing sensors, full (infrared) sensors and other peripherals such as push rods, etc., to achieve real-time collection of status information inside the trash can. And the lid can be controlled be the push rod automaticly, make it an intelligent trash can data collection and control terminal integrating state monitoring and intell control functions.
+This design uses STM32F103RET6 microcontroller as the control core,  with temperature and humidity sensors, weighing sensors, full (infrared) sensors and other peripherals such as push rods, etc., to achieve real-time collection of status information inside the trash can. And the lid can be controlled be the push rod automaticly, make it an intelligent trash can data collection and control terminal integrating state monitoring and intell control functions.
 　　
-　　The data collected by the terminal system through the sensor is temporarily stored in the internal RAM of the microcontroller, and the upper computer system running on the Android system communicates with it through the Modbus protocol to read the trash can status data. The upper computer system visualizes the status data of the trash can and uploads it to the server at a certain time interval. The server parses the data according to the communication protocol and stores it in the database. 
+The data collected by the terminal system through the sensor is temporarily stored in the internal RAM of the microcontroller, and the upper computer system running on the Android system communicates with it through the Modbus protocol to read the trash can status data. The upper computer system visualizes the status data of the trash can and uploads it to the server at a certain time interval. The server parses the data according to the communication protocol and stores it in the database. 
 
-　　The real-time status data of the trash bin stored in the database can drive a variety of applications. The "Smart City Trash Bin Information Platform" implemented in this design is one of them.The platform visualizes the status data from each trash can on the map to form an intuitive trash can status monitoring system, which is convenient for managers to grasp the real-time status of the trash can. When there is an abnormal state or malfunction of the trash can, the platform will also take the initiative to issue a warning to remind the staff to inspect it, which greatly improves the maintenance efficiency of the urban trash can.  
+The real-time status data of the trash bin stored in the database can drive a variety of applications. The "Smart City Trash Bin Information Platform" implemented in this design is one of them.The platform visualizes the status data from each trash can on the map to form an intuitive trash can status monitoring system, which is convenient for managers to grasp the real-time status of the trash can. When there is an abnormal state or malfunction of the trash can, the platform will also take the initiative to issue a warning to remind the staff to inspect it, which greatly improves the maintenance efficiency of the urban trash can.  
 
-　　And this design combines the points system to reward the residents who actively classify and throw domestic garbage, which can greatly improve the residents' awareness and enthusiasm for garbage classification, and implement the garbage classification and recycling.
+And this design combines the points system to reward the residents who actively classify and throw domestic garbage, which can greatly improve the residents' awareness and enthusiasm for garbage classification, and implement the garbage classification and recycling.
 
 KEY WORDS: Internet of Things, Smart City, Embedded Systems, Big Data
 
@@ -42,41 +42,310 @@ KEY WORDS: Internet of Things, Smart City, Embedded Systems, Big Data
 
 ## 背景及意义
 
-　　生态环境与每个人都息息相关，它的好坏将不仅仅关乎动植物的生存，也会直接或间接地影响人类的身体健康[@kumar2016]。习近平总书记在党的十九大报告中指出：绿水青山就是金山银山，更是揭示了生态环境对于人类生产生活的重要关系。
+生态环境与每个人都息息相关，它的好坏将不仅仅关乎动植物的生存，也会直接或间接地影响人类的身体健康[@kumar2016]。习近平总书记在党的十九大报告中指出：绿水青山就是金山银山，更是揭示了生态环境对于人类生产生活的重要关系。
 
-　　随着经济的发展和人们生活水平的日益提高，人们对于工业产品的依赖也日益增强。为了满足人们的生活需要，大量的工厂开动，将自然资源生产成为各种商品。大规模的生产和大量的消费不仅消耗了自然资源，还产生了大量的废弃物，这些废弃物如不得到妥善的处理，势必对生态环境造成伤害。因此，垃圾回收处理是十分必要的，不仅能保护生态环境免遭破坏，让我们的生活环境更加美好，也实现了资源的再生利用，减少了自然资源的使用。
+随着经济的发展和人们生活水平的日益提高，人们对于工业产品的依赖也日益增强。为了满足人们的生活需要，大量的工厂开动，将自然资源生产成为各种商品。大规模的生产和大量的消费不仅消耗了自然资源，还产生了大量的废弃物，这些废弃物如不得到妥善的处理，势必对生态环境造成伤害。因此，垃圾回收处理是十分必要的，不仅能保护生态环境免遭破坏，让我们的生活环境更加美好，也实现了资源的再生利用，减少了自然资源的使用。
 世界许多发达国家已经在几十年前实施了垃圾分类回收制度，且取得了明显的效果。中国政府自2002年起开始鼓励垃圾分类，但是未取得明显成果。2019年1月31日，上海市第十五届人大二次会议表决通过《上海市生活垃圾管理条例》，《条例》规定居民生活垃圾需分类投放。同时，北京，西安，南京[@xinhua_nj]等多个城市均出台新政策鼓励居民积极参与垃圾分类回收，新华网称：中国垃圾分类进入了强制时代[@zotero-84]。
 
-　　不难看出，中国积极实施垃圾分类回收政策，履行维护生态环境塑造“绿水青山”的义务。然而政策发布之后实际实施的效果如何？上海市于2019年通过《上海市生活垃圾管理条例》开启了强制分类时代，实际上，自2011年起，上海市政府就不断在城市生活垃圾处理方面投入资金和人力资源。自2011年至2017年间，上海市生活垃圾收集点由30648处增长到32247处；废物箱由78213只增长到86246只[@ShangHaiShiTongJiJu2020]。然而有调查指出，上海市的垃圾分类仍存在部分问题，如分类细则逻辑较弱，让人难以理解和分辨[@WangYao2020]；社会群体对于垃圾分类政策的接受度与积极性不强[@WangYao2020, @Dong2019]；基础设施设备问题较多[@Dong2019]等。北京，西安，南京等城市的垃圾分类也存在类似的情况，如文献[@huhao2020]指出，虽然超过九成的受访者表示了解相关政策与标准，但是只有约半数的受访者可以做到详细的生活垃圾分类；长安大学的一项调查研究[@Jiang2021]指出：西安作为垃圾分类试点城市，虽然政府积极响应号召，但是由于法规不完善、基础设施不足以及缺乏财政支持和宣传不足等原因，垃圾分类政策并未落到实处；在南京，垃圾分类政策的落实也依然存在居民自觉性与积极性不足、设施与标准不统一等问题[@zhaoyiru2021]。
+不难看出，中国积极实施垃圾分类回收政策，履行维护生态环境塑造“绿水青山”的义务。然而政策发布之后实际实施的效果如何？上海市于2019年通过《上海市生活垃圾管理条例》开启了强制分类时代，实际上，自2011年起，上海市政府就不断在城市生活垃圾处理方面投入资金和人力资源。自2011年至2017年间，上海市生活垃圾收集点由30648处增长到32247处；废物箱由78213只增长到86246只[@ShangHaiShiTongJiJu2020]。然而有调查指出，上海市的垃圾分类仍存在部分问题，如分类细则逻辑较弱，让人难以理解和分辨[@WangYao2020]；社会群体对于垃圾分类政策的接受度与积极性不强[@WangYao2020, @Dong2019]；基础设施设备问题较多[@Dong2019]等。北京，西安，南京等城市的垃圾分类也存在类似的情况，如文献[@huhao2020]指出，虽然超过九成的受访者表示了解相关政策与标准，但是只有约半数的受访者可以做到详细的生活垃圾分类；长安大学的一项调查研究[@Jiang2021]指出：西安作为垃圾分类试点城市，虽然政府积极响应号召，但是由于法规不完善、基础设施不足以及缺乏财政支持和宣传不足等原因，垃圾分类政策并未落到实处；在南京，垃圾分类政策的落实也依然存在居民自觉性与积极性不足、设施与标准不统一等问题[@zhaoyiru2021]。
 
-　　综上所述，虽然我国各级政府都积极响应垃圾分类回收政策，但其效果却并不尽如人意。究其原因，许多城市都有如下两个问题：1. 垃圾分类设施不完备，居民无法进行垃圾分类；2. 缺乏垃圾分类激励政策，居民垃圾分类积极性不高。针对以上问题，本设计开发了一套用于城市社区垃圾回收点的城市智能物联网垃圾桶系统，实现了垃圾回收站点垃圾桶的状态实时监控和居民垃圾分类积分激励系统，解决了垃圾分类设备设施不合理和居民对垃圾分类的积极性不高的问题。同时，本系统的垃圾量监控功能还可以提高城市生活垃圾的清理和回收效率，具有巨大的社会和经济效益。
+综上所述，虽然我国各级政府都积极响应垃圾分类回收政策，但其效果却并不尽如人意。究其原因，许多城市都有如下两个问题：1. 垃圾分类设施不完备，居民无法进行垃圾分类；2. 缺乏垃圾分类激励政策，居民垃圾分类积极性不高。针对以上问题，本设计开发了一套用于城市社区垃圾回收点的城市智能物联网垃圾桶系统，实现了垃圾回收站点垃圾桶的状态实时监控和居民垃圾分类积分激励系统，解决了垃圾分类设备设施不合理和居民对垃圾分类的积极性不高的问题。同时，本系统的垃圾量监控功能还可以提高城市生活垃圾的清理和回收效率，具有巨大的社会和经济效益。
 
 ## 国内外研究现状
 
 ### 国内研究现状
 
-　　中国自封建时代就十分注重城市街道的干净整洁，《韩非子·内储说》记载殷商时期法律：殷之法，弃灰于道者断其手。灰即垃圾，在街道上丢弃垃圾将受到断手的刑法足以见其对此的重视。然而，直到上世纪七八十年代，我国才出现了替代“土坑”部分作用的简易垃圾桶，如图1所示(a)图为竹编垃圾桶，(b)图为“土坑”垃圾桶。
+中国自封建时代就十分注重城市街道的干净整洁，《韩非子·内储说》记载殷商时期法律：殷之法，弃灰于道者断其手。灰即垃圾，在街道上丢弃垃圾将受到断手的刑法足以见其对此的重视。然而，直到上世纪七八十年代，我国才出现了替代“土坑”部分作用的简易垃圾桶，如图1所示{@fig:trashbinInOldTimes}图为竹编垃圾桶，(b)图为“土坑”垃圾桶。
 
-![中国上世纪垃圾桶](imgs/trashbinInOldTimes.jpg){#fig:trashbinInOldTimes width=11.35cm height=5cm}
+![中国上世纪垃圾桶](imgs/trashbinInOldTimes.jpg){#fig:trashbinInOldTimes width=14cm height=6cm}
 
-　　本世纪初期出现的简单分类垃圾桶，让我国人民开始得知垃圾分类的重要意义。分类垃圾桶由传统的一桶变化为多桶一体，并且可回收垃圾桶中收集的有价值可再利用的垃圾可以循环利用，减少了资源的浪费；有害垃圾桶内收集的废旧电池，部分含有重金属元素的电子垃圾，更是有效减少了危险有毒物质对于环境的破坏。近年来垃圾桶逐渐向着多功能，智能化发展。
+本世纪初期出现的简单分类垃圾桶，让我国人民开始得知垃圾分类的重要意义。分类垃圾桶由传统的一桶变化为多桶一体，并且可回收垃圾桶中收集的有价值可再利用的垃圾可以循环利用，减少了资源的浪费；有害垃圾桶内收集的废旧电池，部分含有重金属元素的电子垃圾，更是有效减少了危险有毒物质对于环境的破坏。近年来垃圾桶逐渐向着多功能，智能化发展。
 
-　　如安装有太阳能电池和压缩机的CleanCUBE垃圾桶，其可通过太阳能电池提供的电力驱动压缩机压缩垃圾，使它可以吃下比一般垃圾桶多8倍的垃圾，如图2所示是CleanCUBE垃圾桶示意图；还有研究团队将传感器技术与压缩机共同用于垃圾桶，设计开发出了可以自主压缩、满溢提醒的智能垃圾桶[@Jin2010]，该垃圾桶还具有自动打包装袋垃圾的功能，方便使用的同时避免了人与垃圾的直接接触，十分卫生。压缩式的垃圾桶可以提高垃圾桶垃圾储量，减少工作人员清理的次数。但是压缩垃圾所需的电能较多，一般城市垃圾桶布置的位置恐无法提供足够的电功率，太阳能电池又无法解决背阴处以及阴雨天气的使用，因此该类型的垃圾桶并不适合城市大规模部署使用。
+如安装有太阳能电池和压缩机的CleanCUBE垃圾桶，其可通过太阳能电池提供的电力驱动压缩机压缩垃圾，使它可以吃下比一般垃圾桶多8倍的垃圾，如图{@fig:CleanCUBETrashBin}所示是CleanCUBE垃圾桶示意图；还有研究团队将传感器技术与压缩机共同用于垃圾桶，设计开发出了可以自主压缩、满溢提醒的智能垃圾桶[@Jin2010]，该垃圾桶还具有自动打包装袋垃圾的功能，方便使用的同时避免了人与垃圾的直接接触，十分卫生。压缩式的垃圾桶可以提高垃圾桶垃圾储量，减少工作人员清理的次数。但是压缩垃圾所需的电能较多，一般城市垃圾桶布置的位置恐无法提供足够的电功率，太阳能电池又无法解决背阴处以及阴雨天气的使用，因此该类型的垃圾桶并不适合城市大规模部署使用。
 
-![CleanCUBE垃圾桶](imgs/CleanCUBETrashBin.png){#fig:CleanCUBETrashBin width=11.35cm}
+![CleanCUBE垃圾桶](imgs/CleanCUBETrashBin.png){#fig:CleanCUBETrashBin width=14cm}
 
-　　还有研究团队结合嵌入式技术和语音识别技术，开发出具有语音识别功能的智能垃圾桶，这类垃圾桶具有能够根据使用者的语音指令做出反应的能力。如根据人的指令移动到指定位置[@Su2019]、开启桶盖[@Zhang2017]以及结合深度学习技术和机器视觉技术设计的可以根据使用者念出垃圾类型进行智能分类的智能垃圾桶[@Guo2020, @Xie2018]。这些智能化的垃圾桶虽然具有较高级的功能，但是其使用性不足，如根据语音指令移动和开盖功能并非必要；基于语音或机器视觉的智能分类技术只能根据用户主动提供语音或图像信息才能实现分类。但是在城市社区的垃圾投递场景下，用户的垃圾一般被包裹在深色垃圾袋中，无法提供视觉信息；垃圾袋中垃圾较多时，提供垃圾类型语音信息也会占用使用者大量的时间，并不方便。
+还有研究团队结合嵌入式技术和语音识别技术，开发出具有语音识别功能的智能垃圾桶，这类垃圾桶具有能够根据使用者的语音指令做出反应的能力。如根据人的指令移动到指定位置[@Su2019]、开启桶盖[@Zhang2017]以及结合深度学习技术和机器视觉技术设计的可以根据使用者念出垃圾类型进行智能分类的智能垃圾桶[@Guo2020, @Xie2018]。这些智能化的垃圾桶虽然具有较高级的功能，但是其使用性不足，如根据语音指令移动和开盖功能并非必要；基于语音或机器视觉的智能分类技术只能根据用户主动提供语音或图像信息才能实现分类。但是在城市社区的垃圾投递场景下，用户的垃圾一般被包裹在深色垃圾袋中，无法提供视觉信息；垃圾袋中垃圾较多时，提供垃圾类型语音信息也会占用使用者大量的时间，并不方便。
 
-　　更有研究者另辟蹊径，设计研发出了基于机器视觉的自动垃圾分类分拣机器人系统[@chenzhihong2017]。这种机器人系统基于机器视觉技术和机器人技术，采用深度学习方法实现对复杂背景下垃圾对象的识别和定位，同时采用机械手进行垃圾的抓取和分拣。这一系统可以用于垃圾分拣中心，在垃圾分拣流水线上进行垃圾的自动化分拣。但是垃圾分拣有较多限制，如许多不易抓取的垃圾，就无法通过机器分拣实现分类。要从源头解决生活垃圾分类回收的问题，必须从智能化的垃圾桶入手。
+更有研究者另辟蹊径，设计研发出了基于机器视觉的自动垃圾分类分拣机器人系统[@chenzhihong2017]。这种机器人系统基于机器视觉技术和机器人技术，采用深度学习方法实现对复杂背景下垃圾对象的识别和定位，同时采用机械手进行垃圾的抓取和分拣。这一系统可以用于垃圾分拣中心，在垃圾分拣流水线上进行垃圾的自动化分拣。但是垃圾分拣有较多限制，如许多不易抓取的垃圾，就无法通过机器分拣实现分类。要从源头解决生活垃圾分类回收的问题，必须从智能化的垃圾桶入手。
 
 ### 国外研究现状
 
-　　由于经济社会发展的不同，许多发达国家在垃圾分类方面走在我国前面。例如在德国、美国和日本，垃圾分类被立法支持，在比利时、罗马、奥地利等国，未分类的垃圾会被垃圾回收公司拒收且警告。在这些垃圾分类执行较好的国家，垃圾桶的发展自然也走在前列。
+由于经济社会发展的不同，许多发达国家在垃圾分类方面走在我国前面。例如在德国、美国和日本，垃圾分类被立法支持，在比利时、罗马、奥地利等国，未分类的垃圾会被垃圾回收公司拒收且警告。在这些垃圾分类执行较好的国家，垃圾桶的发展自然也走在前列。
 
-　　法国的初创公司Smartup Cities开发的基于超声波传感器的垃圾桶内部填充水平的监测解决方案。可以将它安装在现有的垃圾桶上[@Filarski2020]，实现对垃圾桶内部垃圾量的远程监控，而且可以根据垃圾桶内垃圾量数据为城市管理部门规划最优的垃圾收集路线，图{@fig:SmartupCities}所示即使该产品安装在普通现有垃圾桶上。无独有偶，捷克斯洛伐克的Sensoneo公司也开发了一种垃圾桶容量的监测系统。不同的是，Sensoneo公司开发的系统可以适配多种传感器。并且具有更加复杂的软件服务，如数据智能分析，智能路线规划和垃圾信息管理系统等。除垃圾量监测外，总部位于澳大利亚的Smartsensor公司开发了一种利用温度传感器监测垃圾桶内温度的系统，该系统可以根据客户的需求制定一个警告阈值，当有垃圾桶内的温度超过该阈值时，系统可以通过短信或Email的形式通知管理人员。美国的EvoEco公司则更注重垃圾桶的人机交互系统，这家公司开发的EvoBin系统配备了屏幕、数据看板和其他交互系统，以吸引用户的注意力。例如，EvoBin的人机交互系统可以用电子游戏的元素来教育用户如何正确地进行垃圾分类，或者在用户丢弃垃圾后通过内置的传感器感测垃圾类型，并通过屏幕显式垃圾信息与用户交互。通过激发用户兴趣的方式达到自己的设计目的，不失为优秀的公共设施设计[@Li2012]。
+法国的初创公司Smartup Cities开发的基于超声波传感器的垃圾桶内部填充水平的监测解决方案。可以将它安装在现有的垃圾桶上[@Filarski2020]，实现对垃圾桶内部垃圾量的远程监控，而且可以根据垃圾桶内垃圾量数据为城市管理部门规划最优的垃圾收集路线，图{@fig:SmartupCities}所示即使该产品安装在普通现有垃圾桶上。无独有偶，捷克斯洛伐克的Sensoneo公司也开发了一种垃圾桶容量的监测系统。不同的是，Sensoneo公司开发的系统可以适配多种传感器。并且具有更加复杂的软件服务，如数据智能分析，智能路线规划和垃圾信息管理系统等。除垃圾量监测外，总部位于澳大利亚的Smartsensor公司开发了一种利用温度传感器监测垃圾桶内温度的系统，该系统可以根据客户的需求制定一个警告阈值，当有垃圾桶内的温度超过该阈值时，系统可以通过短信或Email的形式通知管理人员。美国的EvoEco公司则更注重垃圾桶的人机交互系统，这家公司开发的EvoBin系统配备了屏幕、数据看板和其他交互系统，以吸引用户的注意力。例如，EvoBin的人机交互系统可以用电子游戏的元素来教育用户如何正确地进行垃圾分类，或者在用户丢弃垃圾后通过内置的传感器感测垃圾类型，并通过屏幕显式垃圾信息与用户交互，如图{@fig:EvoEco}所示。通过激发用户兴趣的方式达到自己的设计目的，不失为优秀的公共设施设计[@Li2012]。
 
 ![Smartup Cities开发的Fill-Level Detection产品安装在普通垃圾桶上](imgs/SmartupCities.jpg){#fig:SmartupCities width=11.35cm}
 
+![用户在与EvoBin交互](imgs/EvoEco.png){#fig:EvoEco width=14cm}
+
+除工业企业外，也有大学和研究机构进行智能垃圾桶方向的探索。如印度印度拉贾斯坦邦NIIT大学计算机科学与技术学院的研究人员Jetendra Joshi等人提出的一个整合了物联网和无线传感器网络理念的垃圾桶网络[@joshi2016]，将无线传感器与云计算网络结合，实现了对社区垃圾桶容量的监测。同样来自印度的研究人员Kumar, N. Sathish等人则是利用Arduino UNO[@Martinez-Santos2017]硬件和Android技术实现了垃圾桶容量的监控，并在垃圾桶满溢时向市政府发出提醒，提高垃圾收集效率，避免了垃圾堆积造成的难闻气味和有害病菌。
+
+综上所述，国内外学者以及工业企业在垃圾桶智能化方面做了许多研究，主要方向集中在以下几点：
+
+#### 结合压缩机，实现垃圾桶的“扩容”，减少垃圾收集次数。
+   
+#### 结合无线传感网络或传感器，实现垃圾桶容量的监控和满溢警告，避免垃圾堆积。
+   
+#### 结合云计算和大数据技术，实现垃圾收集路线的自动规划，提高垃圾收集效率。
+   
+#### 结合深度学习技术，实现自动分类功能，帮助用户识别垃圾种类。
+   
+#### 结合优秀的人机交互设计，提高垃圾分类投递的趣味性，激励用户垃圾分类。
+   
+以上提到的垃圾桶部分已实际部署，但结合现实反馈，并非所有垃圾桶都具有好的效果。只有功能实用，使用方便，稳定性强的智能垃圾桶能够最终得到市场的认可。
+
 ## 本文主要工作
 
+本文主要任务是设计一个适用于城市社区垃圾回收中心的城市智能物联网垃圾桶，以解决城市社区的垃圾分类难题。
+
+首先，确定系统整体功能。通过文献调查法调查垃圾分类回收以及垃圾桶发展的社会背景和现状，了解了社会上垃圾分类面临的真正困难和问题；通过调研和资料的归纳整理，了解目前社会上已经出现的或已经部署使用的类似系统，研究其优点和缺陷，尤其是了解城市社区场景下智能垃圾桶运行所面临的问题和挑战。结合搜集整理的信息，进行系统整体功能的设计。
+
+然后，从实际社会需求和问题出发，设计和开发一套多功能智能垃圾桶硬件系统和配套的上位机软件系统，主要实现人机交互和垃圾桶数据采集上云任务，解决社区垃圾分类设备设施不合理问题。通过调研传感器等器件确定系统器件选型，然后通过电路设计和嵌入式软件设计完成硬件电路的设计和实现。
+
+最后通过服务端软件的设计和开发，实现垃圾桶数据收集和持久化[@Yuan2020]以及用户认证积分系统，提高居民垃圾分类积极性。首先确定服务器硬件选型，确定服务端软件架构，随后针对本文提出的系统进行服务端软件的设计和开发。服务端软件的实现形成了上层数据应用的基础。通过Web技术实现的智慧城市垃圾桶信息化平台主要实现了城市垃圾桶状态信息可视化和垃圾桶异常提醒功能，解决了对城市社区垃圾桶的远程统一管理和高效垃圾回收问题。
+
 ## 论文组织方式
+
+论文共分为七章：
+
+第一章绪论，简述了本文的研究背景和意义，对课题所研究的城市物联网智能垃圾桶设计与应用的国家和地方政策以及现状进行了分析和概括。对国内外研究现状进行了调查和分析，介绍了其优点和存在的问题。最后介绍了本文主要的研究工作。
+
+第二章系统总体方案，首先设计了系统的整体架构和各模块之间的关系；随后就各模块要实现的功能和接口分别进行研究。
+
+第三章数据采集与控制终端设计与实现，首先研究终端系统的架构设计及硬件器件选型和电路，随后根据硬件电路的设计来设计和开发嵌入式软件的控制程序。
+
+第四章上位机系统软件设计与实现，设计了系统的Android上位机系统的架构。主要研究上位机系统的整体架构、与终端系统的交互和数据采集模块、与服务端的交互和用户认证及数据上云模块。
+
+第五章服务器后端软件设计与实现，首先进行服务端软件系统的硬件选型和架构设计，随后就各模块的功能设计和具体实现做分别研究。
+
+第六章数据应用的设计和实现，结合系统服务端获取的数据，利用数据处理和可视化技术可以构建城市社区垃圾桶的数字孪生体[@Gao2021, @Du2021, @Du2021a]，同时数据库中的用户信息可以用于构建垃圾分类积分激励系统，让分类意识深入人心。
+
+第七章总结与展望，总结全篇内容并提出展望，结合本次设计的经验为城市智能垃圾桶的设计和发展方向起到借鉴作用。
+
+
+# 系统总体方案
+
+## 系统功能设计
+
+本课题的目的是设计出一套智能的便于使用的城市社区垃圾桶系统，系统组成可分为智能垃圾桶终端系统、Android上位机系统、服务器后端系统和数据应用系统四个部分。主要实现以下几个功能：
+
+#### 城市社区垃圾桶状态监控。
+通过智能垃圾桶终端的传感器实时监测和缓存垃圾桶内部状态信息，并通过Android上位机采集上传到服务器后端系统。服务端实时对来自各垃圾桶的状态数据进行渲染，实现城市社区垃圾桶的可视化监控。
+
+#### 垃圾桶满溢及异常告警。
+当有垃圾桶内部装满垃圾时，智能垃圾桶终端系统的桶满传感器会监测到这一状况并通过上位机上传到服务器。服务器后端系统分析到这一数据时便会向管理人员发送信息提醒对满溢垃圾桶进行清理回收。服务器后端系统会实时分析来自智能垃圾桶终端系统的温度传感器和可燃气体传感器的数据，根据桶内温度和可燃气体浓度推断发生火灾的可能性，当超过一定阈值时，系统会向管理人员发送警告，提醒其前往查看处理。
+
+#### 人机交互。
+当用户通过智能垃圾桶终端的按键或Android上位机的触屏交互系统请求开启桶盖时，智能垃圾桶终端系统通过控制电动推杆实现垃圾桶盖的控制，方便用户使用。Android上位机系统会将其所管理的垃圾桶内部状态信息在其屏幕上渲染，让用户得知桶内状况。当垃圾桶已满或者内部状态异常时，会提醒用户且锁定桶盖。
+
+#### 用户身份认证。 
+用户投递垃圾时，可以使用身份ID进行认证登录，若投递的垃圾属于可回收垃圾，系统会计算用户投递的重量，并给与用户一定的积分奖励。用户的信息和积分数量信息存储在服务器后端系统的数据库中。
+
+## 系统整体架构设计
+
+为完成上节所提出的功能，系统的四个模块（智能垃圾桶终端、Android上位机、服务器后端和数据应用）需要完成的功能如下：
+
+1. 智能垃圾桶终端
+通过多种传感器实现垃圾桶状态信息的采集功能，通过嵌入式扫码器实现用户ID信息的录入，通过电动推杆实现桶盖的智能控制功能等。还需设计实现终端系统与上位机之间的交互接口，以实现数据的读出。
+
+2. Android上位机
+通过开发Android系统应用程序，实现对终端系统数据的读取和渲染功能，实现人机交互接口和服务端接入。当用户扫码登录时向服务端查询验证用户ID信息，并在用户投递后进行积分计算和上传。同时上位机系统以一定的时间间隔将垃圾桶的状态信息打包同步至服务器。
+
+3. 服务器后端
+通过合理的服务端软件设计实现分布式的智能垃圾桶上位机的数据同步和用户登录认证功能。服务端系统需要对大量部署的智能垃圾桶终端及Android上位机系统的数据上传做持久化处理，以及需要设计面向终端系统和数据应用系统请求的接口，实现对终端系统和数据应用系统请求的响应。
+
+4. 数据应用
+针对服务端采集到的大量数据和预留的接口，可以开发多种功能的数据应用，如智能管理平台、用户积分系统、数字孪生体、数据分析系统等。如智能管理平台可以实现对城市社区垃圾桶状态的实时监控和管理、异常警报、满溢提醒等。
+
+本系统四个子模块之间的交互关系如下：
+
+1. 智能垃圾桶终端与Android上位机之间的交互
+智能垃圾桶终端部署在每个垃圾桶上，实时采集垃圾桶状态信息，等待用户操作，并将采集的信息缓存下来。每个Android上位机管理n个智能垃圾桶终端（n一般取4，可以在1~255之间任意扩展），相当于一组垃圾桶共用一个上位机系统。上位机将每个智能垃圾桶终端的状态数据采集汇总，在人机交互界面上渲染，同时以一定的频率向服务端同步。同时用户可以在上位机的界面上操作控制垃圾桶开盖。
+
+2. Android上位机与服务器后端之间的交互
+Android上位机以一定的频率将其采集的来自各垃圾桶的状态数据打包发送到服务端，由服务端系统对数据进行持久化处理。同时，通过服务器后端系统的接口，当用户通过垃圾桶的扫码器扫码时，Android上位机系统会把用户二维码ID发送至服务端进行查询认证，认证成功的用户才可以获得垃圾分类积分奖励。
+
+3. 数据应用于服务器后端之间的交互
+基于服务端数据库中存储的大量垃圾桶状态数据，通过服务端系统预留的接口，数据应用可以从服务端请求数据。对于某些系统（如管理系统）的某些操作（如删除操作），数据应用系统也可以改写服务端数据。
+
+系统的整体架构图如{@fig:OverallStructure}所示：
+
+![系统整体架构图](imgs/OverallStructure.png){#fig:OverallStructure width=15.5cm}
+
+## 小结
+
+本章通过对系统需求的深入分析，对系统的功能方案进行了分析和设计。在功能方案的基础上，结合课题要求，分析整理了系统各子模块之间的交互逻辑关系。最后，根据模块交互关系和网络互联关系绘制了系统的整体架构图，形成了系统的整体设计方案，为系统的实现打下了基础。
+
+
+# 数据采集与控制终端设计与实现
+
+## 终端系统主要硬件电路设计与实现
+
+### 硬件电路总体设计
+
+系统硬件系统主要包括电源电路部分、单片机最小系统部分、传感器外设部分、桶盖控制部分，扫码器部分和上位机接口部分。其中传感器外设部分又可以分为温湿度传感器部分、重量传感器部分、桶满传感器部分、用户接近传感器部分和可燃气体传感器部分。硬件系统将终端系统的电源电路、单片机控制核心、传感器外设接口等部分集中在一块电路板上，可以显著减小系统的体积，更具适应性。图{@fig:HardwareStructure}所示为系统硬件电路架构设计图。
+
+![硬件电路结构设计图](imgs/HardwareStructure.png){#fig:HardwareStructure width=14cm}
+
+该设计中，MCU（单片机）用于处理所有的传感器数据并与上位机通信；温湿度传感器、重量传感器、桶满状态传感器、可燃气体传感器用于监测垃圾桶内状态信息；用户接近模块和扫码器模块用于人机交互系统，提供更好的使用体验；上位机接口则用于与Android上位机通信。
+
+### 单片机最小系统电路设计
+
+出于成本和性能以及外设接口的丰富程度的综合考虑，本系统的单片机控制器选择意法半导体公司生产的STM32F103系列型微控制器。STM32F103系列微控制器基于Arm-Cortex-M3内核，主频最高为72MHz，内置Flash空间大小覆盖了从16KBytes到1MBytes的范围。根据内置Flash大小和RAM大小以及单片机针脚数量，STM32F103系列单片机可以分为如图{@fig:STM32F103Series}所示的29个型号。
+
+![STM32F103系列单片机分类](imgs/STM32F103Series.png){#fig:STM32F103Series width=16cm}
+
+结合系统所需的外设种类和数量以及程序库编译后的二进制体积考虑，本设计选择了STM32F103RE系列单片机，它有64个引脚（其中51个是GPIO引脚，其余13个是电源，晶振等引脚），可以满足系统外设的连接控制需求；同时它内置了512KBytes大小的Flash和64KBytes大小的RAM，可以满足外设驱动和通信协议栈的程序运行。
+
+由于本系统不需要再零下40摄氏度以下或85摄氏度以上的极端环境下工作，因此选定微控制器的型号为可在-40℃~85℃下工作的STM32F103RET6。
+
+该型微控制器基础参数（局部）如表{@tbl:STM32F103RET6}所示[@Chong2020]：
+
+| Flash大小 | SRAM大小 | Timer | SPI | I2C | U(S)ART | GPIO | 12位ADC |
+| --------- | -------- | ----- | --- | --- | ------- | ---- | ------- |
+| 512KB     | 64KB     | 8个   | 3个 | 2个 | 5个     | 51个 | 3个     |
+Table:STM32F103RET6型微控制器基础参数表 {#tbl:STM32F103RET6}
+
+可以看出该型微控制器的U(S)ART接口资源较为丰度，可以连接控制多个独立的串口设备。本系统所需的单片机最小系统电路与一般的STM32F103RET6系统别无二致，图{@fig:MCUCircute}所示是最小系统电路原理图。
+
+![控制系统核心电路原理图](imgs/MCUCircute.png){#fig:MCUCircute width=14cm}
+
+该电路设计图中包含SWD调试接口、系统指示灯、复位电路、晶振电路、电源电路和MCU引脚等几个部分。
+
+SWD调试即串行调试（Serial Wire Debug），是一种最少只需要占用单片机的2个引脚就可以实现内核访问调试的调试协议[@HuangYaPing2012, @HuangGuoWei2019, @Shi2020, @Shi2019]。使用SWD调试接口进行Arm-Cortex内核单片机的调试和程序下载，可以节约外设资源和减小电路板体积。
+
+系统指示灯作为系统运行的指示，向系统维护人员传递系统仍在运行的信息。
+
+复位电路由复位按键和上电复位电路[@Song2021]组成。STM32的单片机是低电平复位的，当上电时，STM32单片机的NSRT引脚电平为低时，单片机会将内部各寄存器的值重设为初始状态，随后NSRT引脚电平为高时，单片机正常工作，由此完成复位过程。复位电路上有电阻和电容构成的RC电路，这种RC电路可以时NRST引脚上的电压缓慢变化，防止电压突变造成故障。当单片机内部出现故障时，有时也需要对单片机进行复位，这时可以按下复位按键使NSRT引脚接地，完成复位[@Lu2014]。
+
+晶振电路是控制器核心电路的核心[@Zhao2016, @Wang2012]，它本身是一种能够把电能和机械能相互转化的晶体，当它在共振条件下工作时，就可以提供稳定，精确的单频信号。通常情况下，普通晶振的频率可以达到百万分之五[@Wang2020]，精度极高。利用它所产生的时钟信号，可以为单片机提供时钟频率，从而驱动单片机的指令执行。
+
+STM32F103RET6的电源分为芯片工作电压、ADC参考电压、模拟电压和电池备用电源等，分别对应单片机的11个（5种）引脚。其对应关系如表{@tbl:MCUPower}所示。
+
+| VDD        | VSS        | VDDA       | VSSA       | V_BAT    |
+| ---------- | ---------- | ---------- | ---------- | -------- |
+| 工作正电压 | 工作负电压 | 模拟正电压 | 模拟负电压 | 电池供电 |
+Table:STM32F103RET6单片机电源引脚种类 {#tbl:MCUPower}
+
+### 温湿度监测模块电路设计
+
+温湿度监测模块的一般设计思路是通过温度和湿度的传感器安装在垃圾桶内部传感温湿度，本设计种为了结构的简约以及对节约单片机外设接口资源的考虑，使用温湿度一体传感器[@Lu2008]。现代的温湿度传感器根据原理的不同在结构上千差万别，根据测量对象、测量环境以及稳定性的考虑，本设计选用了YSAT01B型温湿度变送器作为温湿度监测模块的传感器。
+
+该型温湿度传感器采用工业通用的RS485[@Xu2009, @FengZiLing2012, @Jia2010]总线MODBUS-RTU协议[@MODBUSStandard, @Fovino2009]接口，可以方便地通过串口进行通信。该型传感器可适配金属保护外壳，在垃圾桶场景下不易损坏。该型传感器技术参数如表{@tbl:TempSensorTable}所示。
+
+| 温度测量范围 | $-30^oC~80^oC$                |
+| ------------ | ----------------------------- |
+| 温度测量精度 | $\pm0.3^oC(at 25^oC)$         |
+| 湿度测量范围 | $0~100RH\%$                   |
+| 湿度测量精度 | $\pm 3RH\%$                   |
+| 通讯接口     | $RS485(MODBUS-RTU)$           |
+| 供电电源     | $DC5~24V$                     |
+| 分辨率       | 温度$0.01^oC$，湿度$0.01RH\%$ |
+| 功耗         | $\leqslant 0.1W$              |
+| 运行环境     | $-40^oC~120^oC,0~100RH\%$     |
+Table:YSAT01B型温湿度变送器技术参数 {#tbl:TempSensorTable}
+
+容易看出，该型传感器适用于本系统所工作的场景，且精度较高。图{@fig:TempSensorImage}所示是该型传感器的外形示意图。
+
+![YSAT01B型温湿度变送器外形示意图](imgs/TempSensorImage.png){#fig:TempSensorImage width=11.35cm}
+
+传感器有四条引脚接线，分别是电源正负极和RS485总线的AB差分线。根据此接口，设计传感器与单片机控制器之间的接口电路原理如图{@fig:TempSensorCircute}所示。
+
+![温湿度传感器模块电路原理图](imgs/TempSensorCircute.png){#fig:TempSensorCircute width=16cm}
+
+由于单片机的外设接口只有U(S)ART串口，不具有直接输出485差分信号的能力。本模块采用MAX3485ESA（图{@fig:TempSensorCircute}中的U9）实现了一个485与UART电平互转的电路[@Lei2014]，实现了单片机与传感器之间的通信。同时该部分电路设计有串口收发指示灯，用以提示维护人员该传感器与单片机之间的通信情况。
+
+### 重量监测模块电路设计
+
+在垃圾桶使用场景中，如果只依靠桶满传感器监测桶内垃圾容量，有时会出现“虚满”的现象。这是因为垃圾桶内部的垃圾可能存在许多蓬松的体积大（且可折叠压下）的垃圾。为了避免虚满对垃圾回收清理效率的影响，本设计采取桶满传感器与重量传感器结合的方式判断垃圾桶内剩余容量。当桶满传感器报告垃圾桶已满时，系统还要结合重量信息判断桶内是否出现了虚满现象。这样就可以避免系统出现误判。
+
+考虑到使用场景中环境可能较为潮湿且重量较大，本设计选用常用于工业场景的悬臂梁式称重传感器[@Bi2020, @Gong2019, @Jin2014]实现对垃圾桶重量的监测。这种传感器的工作原理是惠斯通电桥[@Jin2020]，悬臂的应变区贴有应变片，可以感应到微小应变，并以电阻变化的形式表现，惠斯通电桥的四个桥即应变片。
+
+该型传感器的技术参数和安装示意分别如表{@tbl:WeightATbl}和图{@fig:WeightAFig}所示。
+
+| 量程           | $0~500kg$          | 零点温度漂移 | $0.03\%F.S./10^oC$          |
+| -------------- | ------------------ | ------------ | --------------------------- |
+| 输出灵敏度     | $2.0\pm0.05V/mV$   | 材质         | 铝合金                      |
+| 零点输出       | $\pm1\%F.S.$       | 阻抗         | $350\Omega$                 |
+| 非线性         | $0.02\%F.S.$       | 绝缘电阻     | $\geqslant5000M\Omega/100V$ |
+| 滞后           | $0.03\%F.S.$       | 电压         | $5~15V$                     |
+| 重复性         | $0.02\%F.S.$       | 工作温度     | $-20^oC~80^oC$              |
+| 蠕变（30分钟） | $0.03\%F.S.$       | 安全超载     | $150\%$                     |
+| 温度灵敏度漂移 | $0.03\%F.S./10^oC$ | 极限超载     | $200\%$                     |
+Table:悬臂梁式称重传感器的典型技术参数和电气特性 {#tbl:WeightATbl}
+
+![悬臂梁式称重传感器的一种安装方式示意图](imgs/WeightAFig.jpg){#fig:WeightAFig width=11.35cm}
+
+由于单片机内部只有12位的ADC，其模拟信号测量精度最高只有$1/2^{12}V$，不足以满足设计需要。因此，本设计使用KYD-310式数字变送器采集称重传感器的模拟信号转化为数字量供单片机查询。这样控制系统的电路设计和软件设计不许考虑传感器细节，可以直接通过接口查询结果，简化了系统设计，实现了控制系统和外设传感器的解耦分离。表{@tbl:WeightDTbl}所示是KYD-310式数字变送器的技术规格。
+
+| 供电电压       | $10V~30V$             |
+| -------------- | --------------------- |
+| 输入灵敏度     | $0.4mV/V~6mV/V$       |
+| 传感器激励电压 | $5V\pm2\%$            |
+| A/D参数        | 24位，Delta-Sigma方法 |
+| 通信接口       | RS485(MODBUS-RTU)     |
+| 精度           | 1/10000               |
+| 工作温度       | $-30^oC~60^oC$        |
+| 防护等级       | IP64                  |
+Table:KYD-310型数字变送器技术规格 {#tbl:WeightDTbl}
+
+由于与单片机直接通信的数字变送器采用RS485接口收发数据，所以单片机核心控制板上只需留有485和U(S)ART电平互转电路和接口即可，此模块电路原理图与图{@fig:TempSensorCircute}极为相似，此处不赘附。
+
+### 桶满状态监测模块电路设计
+
+对于垃圾高度信息，系统只需关心桶内垃圾是否已满，对于具体的高度数值无需详细采集。因此桶内垃圾高度采用E3F-DS30C4型红外接近开关采集，该型传感器可视为一种开关，其在被测表面距离较远时处于常开状态，此时公共端与常开端短路，在被测表面对传感器造成遮挡时处于常闭状态，此时公共端与常闭端短路。电路原理图如图{@fig:FullCircute}所示。
+
+![桶满状态监测模块电路原理图](imgs/FullCircute.png){#fig:FullCircute width=11.35cm}
+
+该电路原理图设计中，红外接近开关的输出信号首先经过电阻分压后才接入单片机，分压比例为$V_{out} = V_{in}\times \frac{3.3}{5.3}$，可以保护单片机免遭过高电压的冲击而损坏。
+
+### 用户接近监测模块电路设计
+
+用户接近监测实际是在监测桶前方用户相距垃圾桶的距离，常用的距离检测方案式采用超声波测距传感器。考虑到超声波传感器的测距角度广、分辨率高以及结构简单可靠的特点[@Chen2021, @Wang2021]，本设计也选用超声波测距传感器进行用户接近的监测。所选用的超声传感器探头与常见的倒车雷达所使用的超声波传感器别无二致，其外观示意图如图{@fig:UltrasoundFig}所示。
+
+![超声波传感器探头外观示意图](imgs/UltrasoundFig.jpg){#fig:UltrasoundFig width=10cm}
+
+该传感器探头需要一定频率的信号才可以驱动，其反馈回的信号也是模拟信号，需要进一步标定才能转换为距离数值，较为复杂，因此，本设计使用了一个AJ-SRO4M-TX驱动模块来辅助完成超声波测距的任务，该模块的外观如图{@fig:AJ-SRO4M-TX}所示。
+
+![AJ-SRO4M-TX模块外观示意图](imgs/AJ-SRO4M-TX.png){#fig:AJ-SRO4M-TX width=10cm}
+
+该模块的数据通过标准的UART串口进行输出，因此此模块的接口电路不需要其他电平转换电路来适配，可以直接与单片机的UART外设接口连接。用户接近监测模块电路原理图如图{@fig:AJ-SRO4M-TXCircute}所示。
+
+![用户接近监测模块电路设计图](imgs/AJ-SRO4M-TXCircute.png){#fig:AJ-SRO4M-TXCircute width=10cm}
+
+### 可燃气体浓度监测模块电路设计
+
+### 桶盖控制模块电路设计
+
+### 扫码器模块电路设计
+
+### 上位机接口部分电路设计
+
+### 电源电路设计
+
+### 终端系统硬件电路实现
+
+## 终端系统软件设计与实现
+
+### 系统软件整体架构
+
+### 单片机核心系统固件设计
+
+### 温湿度检测模块程序设计
+
+### 重量检测模块程序设计
+
+### 桶满状态检测模块程序设计
+
+### 用户接近检测模块程序设计
+
+### 可燃气体浓度检测模块程序设计
+
+### 桶盖控制模块程序设计
+
+### Modbus协议栈设计
+
+### 终端系统软件实现
+
+## 小结
