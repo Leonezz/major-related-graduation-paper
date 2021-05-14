@@ -2,7 +2,7 @@
 
 import pathlib
 md_file_list = list(pathlib.Path("./src").glob('./*.md'))
-print(str(md_file_list))
+
 if len(md_file_list) != 0:
     list_after_sort = sorted(md_file_list)
     content = ""
