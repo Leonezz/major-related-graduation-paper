@@ -449,7 +449,7 @@ void querryTempreatureAndHumity()
     // 清除DMA FLAG
     LL_DMA_ClearFlag_TC3(WEIGHT_UART_TX_DMA); 
     // 将指令拷贝到串口发送缓冲区
-    memccpy(weightTxBuf, command, COMMANDLENGTH); 
+    memccpy(TxBuf, command, COMMANDLENGTH); 
     // 失能DMA通道
     LL_DMA_DisableChannel(TEMPREATURE_AND_HUMIDITY_UART_TX_DMA,
                          TEMPREATURE_AND_HUMIDITY_UART_TX_DMA_STREAM);
@@ -479,7 +479,7 @@ void decodeTempreareAndHumityData()
 }
 ```
 
-
+由于本设计中所有的外设模块都使用了DMA[@Li2020, @Huang2019]技术进行外设数据与内部RAM之间的数据交换，因此本模块中的串口数据收发部分与一般的串口通信程序并不相同。在系统初始化阶段，程序需要先初始化外设的DMA配置，配置发送和接收缓冲区，在发送时，程序首先清除DMA的TC3标志位，然后将要发送的数据拷贝到发送缓冲区，最后重新使能DMA通道，DMA即自动进行数据的转移；接收时，首先从串口的DMA中断跳转到数据处理函数，在数据处理函数中可以直接读取接收缓冲区。
 
 ### 重量检测模块程序设计
 
