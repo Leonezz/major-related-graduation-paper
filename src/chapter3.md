@@ -173,6 +173,8 @@ Table:MQ-2型可燃气体浓度传感器技术参数表 {#tbl:MQ-2SensorTbl}
 
 ![控制推杆的继电器驱动电路](imgs/PutterControl.png){#fig:PutterControl width=12cm}
 
+为防止因推杆故障或机械故障导致系统无法确定桶盖状态，本设计使用了一个限位开关实现桶盖状态的反馈。限位开关可安装在桶盖与桶身直接接触的地方，需实现桶盖的开启状态与关闭状态下限位开关的状态不同。如此，便可以通过限位开关的状态获知桶盖的实际状态。
+
 ### 扫码器模块电路设计
 
 扫码器采用的是ES4650嵌入式影像扫描器，该型扫码器可以快速扫描解码多种一维码、二维码，支持识别手机屏幕等高反射率表面上显示的条码，适用于复杂影像光照环境。该型扫码器还具有自动感应功能，可以在其视野范围内出现物体时自动开始扫描解码。该型扫码器的技术参数如表{@tbl:ScannerTbl}所示，外观如图{@fig:ScannerFig}所示。
@@ -419,11 +421,116 @@ uint8_t isFull()
 
 ![桶满状态传感模块驱动函数调用流程](imgs/FullProcess.png){#fig:FullProcess width=5cm}
 
-### 用户接近传感块程序设计
+### 用户接近传感模块程序设计
+
+#### 驱动函数设计
+
+用户接近传感模块的硬件设计使用了一个超声波传感探头和AJ-SRO4M-TX超声波探头驱动模块。该驱动模块可以配置成串口自动模式，即该模块以一定的频率主动通过串口发出超声波测距数值。因此，该传感模块的驱动程序不需要额外的数据查询函数，只需要完成单片机的串口外设初始化即可。根据设计，该模块使用的单片机外设是UART4串口，因此，该模块的驱动函数为：
+
+```C
+// 初始化UART4串口及DMA
+void ultrasoundSensorInit()
+{
+    // 设置数据长度
+    LL_DMA_SetDataLength(ULTRASOUND_UART_RX_DMA,
+                         ULTRASOUND_UART_RX_DMA_STREAM,
+                         ULTRASOUND_RX_LENGTH);
+    // 设置外设(UART4)地址
+    LL_DMA_SetPeriphAddress(ULTRASOUND_UART_RX_DMA,
+                            ULTRASOUND_UART_RX_DMA_STREAM,
+                            LL_USART_DMA_GetRegAddr(ULTRASOUND_UART));
+    // 设置缓冲区地址
+    LL_DMA_SetMemoryAddress(ULTRASOUND_UART_RX_DMA,
+                            ULTRASOUND_UART_RX_DMA_STREAM,
+                            (uint32_t)ultraSoundRxBuf);
+    // 使能DMA通道
+    LL_DMA_EnableChannel(ULTRASOUND_UART_RX_DMA,
+                        ULTRASOUND_UART_RX_DMA_STREAM);
+    // 使能DMA中断
+    LL_USART_EnableDMAReq_RX(ULTRASOUND_UART);
+}
+```
+
+#### 驱动函数调用流程
+
+超声波传感模块驱动的使用较为简单，只需在完成串口UART4的初始化之后再调用模块的初始化函数，即可实现数据自动接收到数据缓冲区。驱动函数的调用流程如图{@fig:UltrasoundProcess}所示。
+
+![用户接近感应模块驱动函数调用流程](imgs/UltrasoundProcess.png){#fig:UltrasoundProcess width=5cm}
 
 ### 可燃气体浓度传感模块程序设计
 
+#### 驱动函数设计
+
+可燃气体浓度传感模块输出一个与甲烷等可燃性气体浓度正相关的模拟信号，在硬件设计中，该传感器的输出信号通过单片机的ADC1通道4进行检测。在程序中，首先进行ADC外设的初始化，随后只需要将该ADC通道的DMA设置为循环模式（Circular Mode），单片机的ADC硬件就会不断地根据预先设定的参数进行模拟信号的采集。因此，本模块的驱动函数也十分简单，只需要完成对传感器的初始化，无需额外的数据查询函数。因此，本模块的驱动函数与用户接近传感模块十分相似，只不过外设由UART4变成了ADC1：
+
+```C
+void flammableGasSensorInit()
+{
+    // 设置数据长度
+    LL_DMA_SetDataLength(GAS_ADC_DMA,
+                       GAS_ADC_DMA_STREAM,
+                       ADCBufSize);
+    // 设置外设地址
+    LL_DMA_SetPeriphAddress(GAS_ADC_DMA,
+                          GAS_ADC_DMA_STREAM,
+                          LL_ADC_DMA_GetRegAddr(GAS_ADC, LL_ADC_DMA_REG_REGULAR_DATA));
+    // 设置数据缓冲区地址
+    LL_DMA_SetMemoryAddress(GAS_ADC_DMA,
+                          GAS_ADC_DMA_STREAM,
+                          (uint32_t)ADCBuf);
+    // 使能DMA通道
+    LL_DMA_EnableChannel(GAS_ADC_DMA,
+                      GAS_ADC_DMA_STREAM);
+    // 使能ADC
+    LL_ADC_Enable(GAS_ADC);
+    // 设置ADC使用DMA传输数据
+    LL_ADC_REG_SetDMATransfer(GAS_ADC,
+                            LL_ADC_REG_DMA_TRANSFER_UNLIMITED);
+    // ADC开始采集数据
+    LL_ADC_REG_StartConversionSWStart(GAS_ADC);
+}
+```
+
+同样地，该传感器驱动函数的调用流程也如图{@fig:UltrasoundProcess}所示。
+
 ### 桶盖控制模块程序设计
+
+#### 驱动函数设计
+
+桶盖使用电动推杆控制。在硬件上，推杆由单片机的引脚电平通过继电器模块进行控制。根据桶盖的“开”和“关”两种状态，桶盖控制模块的驱动函数主要有两个，分别控制桶盖开启和关闭：
+
+```C
+// 控制桶盖开启
+void open()
+{
+    // 检查桶内状态，如不适合开盖则不执行命令
+    if (indicatorStatus != 0x00)
+        return;
+    // 如果桶盖已经开启，不需执行命令
+    if (getPutterStatus() == 1)
+        return;
+    // 设置控制引脚输出低电平，桶盖开启
+    LL_GPIO_ResetOutputPin(PUTTER_CONTROL_PIN_GPIO_Port, PUTTER_CONTROL_PIN_Pin);
+}
+
+// 控制桶盖关闭
+void close()
+{
+    // 如果桶盖已经关闭，不需执行命令
+    if (getPutterStatus() == 0)
+        return;
+    // 设置控制引脚输出高电平，桶盖关闭
+    LL_GPIO_SetOutputPin(PUTTER_CONTROL_PIN_GPIO_Port, PUTTER_CONTROL_PIN_Pin);
+}
+```
+
+在开启函数中，首先需要检测垃圾桶状态，判断垃圾桶内是否存在三种情况中的至少一种：1. 桶内温度过高；2. 桶内已满；3. 桶内垃圾重量超重，如果存在，则不执行开盖命令，反之进行下一步检查。在下一步检查中，系统通过限位器引脚电平判断桶盖状态，如果桶盖已经打开，则不执行命令。
+
+#### 驱动函数调用流程
+
+驱动函数调用之前，必须保证控制引脚已经初始化为输出模式，限位器引脚已经初始化为输入模式。驱动函数调用流程如图{@fig:PutterProcess}所示。
+
+
 
 ### Modbus协议栈设计
 
