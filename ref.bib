@@ -65,6 +65,17 @@
   number = {02}
 }
 
+@phdthesis{Cheng2020,
+  title = {{面向ARM Cortex-M系列MCU的嵌入式集成开发环境设计研究}},
+  author = {程, 宏玉},
+  year = {2020},
+  abstract = {嵌入式集成开发环境(Integrated Development Environment,IDE)作为物联网产品的软件开发平台,其应用价值与开发技术受到广泛关注。目前嵌入式IDE在资源配置、工程编译、程序下载等方面存在的问题,限制了白身的应用范围与发展方向。本文以底层应用开发支撑、芯片适应性、软件更新等相关技术为切入点,设计并实现款面向ARM Cortex-M系列微控制器的通用嵌入式集成开发环境,主要内容如下:(1)针对嵌入式IDE底层应用程序开发支撑不足的问题,引入终端BIOS的概念。基于构件化思想,在BIOS中实现驱动函数的驻留,并通过一定的映射与重定向机制,在IDE中为用户提供函数原型级...},
+  keywords = {ARM Cortex-M,ARMCortex-M,BIOS,Cross Compiler,Integrated Development Environment,Program Update,交叉编译,程序更新,集成开发环境},
+  language = {中文;},
+  school = {苏州大学},
+  type = {{硕士}}
+}
+
 @inproceedings{chenzhihong2017,
   title = {A Vision-Based Robotic Grasping System Using Deep Learning for Garbage Sorting},
   booktitle = {2017 36th {{Chinese Control Conference}} ({{CCC}})},
@@ -187,6 +198,17 @@
   number = {07}
 }
 
+@article{Fang,
+  title = {{Redis内存数据库在长江上游水资源管理决策支持系统中的应用研究}},
+  author = {方, 豪文 and 周, 建中 and 贾, 本军 and 汤, 正阳 and 纪, 传波},
+  pages = {1--6},
+  issn = {0559-9342},
+  abstract = {随着流域巨型水库群的建成投运和流域水文监测站网体系的逐步完善，水资源时空数据日趋庞大，导致已有水资源管理决策支持系统服务器压力剧增、响应速度降低、易崩溃等问题的发生。为此，研究引入开源的Key-Value模型内存数据库Redis，设计了一种快速高效的数据交互框架，避免频繁的磁盘I/O操作，实现系统响应速度的数量级提升。研究成果集成在长江三峡梯调中心金沙江下游-三峡决策支持系统中，应用效果表明，设计的数据交互框架能够显著提升系统响应速度，保障系统的可用性和稳定性。},
+  journal = {水力发电},
+  keywords = {data interaction,decision support system,main memory database,the upper reaches of Yangtze River,water resource management,内存数据库,决策支持系统,数据交互,水资源管理,长江上游},
+  language = {中文}
+}
+
 @article{FengZiLing2012,
   title = {{RS485总线通信协议的设计与实现}},
   author = {冯子陵 and 俞建新 and 南京大学计算机科学与技术系, 南京 210046},
@@ -238,6 +260,20 @@
   series = {{{IFIP Advances}} in {{Information}} and {{Communication Technology}}}
 }
 
+@article{Fu2018,
+  title = {{基于定时中断的实时按键任务处理设计}},
+  author = {符, 潇天 and 黄, 明 and 彭, 召敏 and 张, 轩 and 崔, 进宝},
+  year = {2018},
+  volume = {05},
+  pages = {24--28},
+  issn = {2095-8412},
+  abstract = {设计一种接收传感数据、转换、回传上位机的高速度、高质量实时按键任务处理方法。根据定时器抽样扫描设计思路,构建按键扫描逻辑框图,进而构建按键事件处理逻辑框图,在STM32、AVR单片机硬件环境和C语言软件环境下进行评测。在长按、短按各3组测试中,每组100次按键输入检测准确率为100\%,有效规避了按键抖动和外部干扰。此外,对多按键识别中可能造成的逻辑错误特例进行了分析,给出了改进的时序图。该设计具有较大的应用优势。},
+  journal = {工业技术创新},
+  keywords = {External Interference,Keystroke Dithering Elimination,Real-time Keystroke,Timer Interruption,外部干扰,定时中断,实时按键,按键消抖},
+  language = {中文;},
+  number = {02}
+}
+
 @article{Gao2021,
   title = {{基于数字孪生的智慧城市建设发展研究}},
   author = {高, 志华},
@@ -265,6 +301,17 @@
   keywords = {modal analysis,optimization of structural parameters,response surface,weighing sensor,响应面,模态分析,称重传感器,结构参数优化},
   language = {中文;},
   number = {08}
+}
+
+@phdthesis{Gu2016,
+  title = {{基于Makefile文件依赖的源码分析工具设计与实现}},
+  author = {谷, 凤伟},
+  year = {2016},
+  abstract = {源代码分析是软件测试、系统分析和软件开发领域中的重要组成部分。近年来,源码分析工具的出现,为程序员分析源代码提供了很大便利。但是对于makefile组织的工程源码,其各个模块中文件间的依赖关系定义在makefile文件中,所以在分析过程中出现了因为不同模块中的符号同名造成定义混淆的问题。本文以静态分析为技术背景,分析makefile文件中的依赖关系,确定符号的查找范围,提高在源码分析过程中符号定位的准确性。本文的主要工作和创新如下：1、通过对当前源码分析现状的总结,得出当前技术在分析工程源码时存在的缺陷：在不同模块下存在同名符号定义时不能确定其定义的准确位置。2、在源码分析的过程中利用make...},
+  keywords = {abstract syntax tree,file-based dependency,makefile,source code analysis,抽象语法树,文件依赖,源码分析},
+  language = {中文;},
+  school = {南京大学},
+  type = {{硕士}}
 }
 
 @article{Guo2020,
@@ -304,6 +351,15 @@
   keywords = {CMSIS standard,CMSIS-RTOS API interface standard,CMSIS-RTOS API接口标准,CMSIS标准,Cortex-M processor series,Cortex-M处理器系列,cross platform,ILT OS,Io T application,microcontroller,微控制器,物联网应用,物联网操作系统,跨平台},
   language = {中文;},
   number = {03}
+}
+
+@misc{HTTP,
+  title = {Information Technology - {{Dynamic}} Adaptive Streaming over {{HTTP}} （{{DASH}}） - {{Part}} 1: {{Media}} Presentation Description and Segment Formats; {{Technical Corrigendum}} 1},
+  author = {ISO/IEC JTC 1/SC 29},
+  year = {2013},
+  month = jun,
+  pages = {61},
+  number = {35\_040}
 }
 
 @inproceedings{Huang2019,
@@ -539,6 +595,24 @@
   type = {{硕士}}
 }
 
+@article{Li2018,
+  title = {{{ECharts}}: {{A}} Declarative Framework for Rapid Construction of Web-Based Visualization},
+  shorttitle = {{{ECharts}}},
+  author = {Li, Deqing and Mei, Honghui and Shen, Yi and Su, Shuang and Zhang, Wenli and Wang, Junting and Zu, Ming and Chen, Wei},
+  year = {2018},
+  month = jun,
+  volume = {2},
+  pages = {136--146},
+  issn = {2468-502X},
+  doi = {10.1016/j.visinf.2018.04.011},
+  abstract = {While there have been a dozen of authoring systems and programming toolkits for visual design and development, users who do not have programming skills, such as data analysts or interface designers, still may feel cumbersome to efficiently implement a web-based visualization. In this paper, we present ECharts, an open-sourced, web-based, cross-platform framework that supports the rapid construction of interactive visualization. The motivation is driven by three goals: easy-to-use, rich built-in interactions, and high performance. The kernel of ECharts is a suite of declarative visual design language that customizes built-in chart types. The underlying streaming architecture, together with a high-performance graphics renderer based on HTML5 canvas, enables the high expandability and performance of ECharts. We report the design, implementation, and applications of ECharts with a diverse variety of examples. We compare the utility and performance of ECharts with C3.js, HighCharts, and Chart.js. Results of the experiments demonstrate the efficiency and scalability of our framework. Since the first release in June 2013, ECharts has iterated 63 versions, and attracted over 22,000 star counts and over 1700 related projects in the GitHub. ECharts is regarded as a leading visualization development tool in the world, and ranks the third in the GitHub visualization tab.},
+  file = {F\:\\ZeteroData\\storage\\UHSZU5EB\\Li 等。 - 2018 - ECharts A declarative framework for rapid constru.pdf;F\:\\ZeteroData\\storage\\PRZUKPDR\\S2468502X18300068.html},
+  journal = {Visual Informatics},
+  keywords = {Information visualization,Web-based visualization},
+  language = {en},
+  number = {2}
+}
+
 @article{Li2020,
   title = {{基于DMA的串口接收空闲中断研究}},
   author = {李, 队员 and 朱, 广},
@@ -551,6 +625,19 @@
   keywords = {DMA,Idle interruption,Uncertain length,不定长,内存存取,空闲中断},
   language = {中文;},
   number = {03}
+}
+
+@article{Li2021,
+  title = {{WebSocket协议在IIoT领域的应用优势}},
+  author = {李, 垚 and 张, 宇 and 张, 惠樑},
+  year = {2021},
+  pages = {58--60},
+  issn = {1674-778X},
+  abstract = {作为网络层协议,WebSocket对比Ajax有诸多优势:支持服务器端向客户端推送功能,接入API更加容易,实时性更好。客户端与服务器建立保持型连接,可以持续传送消息。WebSocket协议数据包的首部信息量和通信量更少,减少硬件资源消耗,减轻网络负担。Web版安东系统采用WebSocket协议,实现客户端与服务器的实时数据交互,满足自动化产线数据透明的管理需求。},
+  journal = {自动化应用},
+  keywords = {IIoT,TCP,WebSocket,双向数据流},
+  language = {中文;},
+  number = {01}
 }
 
 @article{Lu2008,
@@ -755,6 +842,19 @@
   type = {{硕士}}
 }
 
+@article{Wang2016,
+  title = {{Spring Boot研究和应用}},
+  author = {王, 永和 and 张, 劲松 and 邓, 安明 and 周, 智勋},
+  year = {2016},
+  pages = {91--94},
+  issn = {1673-1131},
+  abstract = {Spring Boot是一个用于简化、加速Spring开发的框架,文章对Spring Boot的开发做了简要介绍,之后对整合传统Spring的开发做了探索性研究。},
+  journal = {信息通信},
+  keywords = {Spring Boot,开发,整合传统Spring},
+  language = {中文;},
+  number = {10}
+}
+
 @article{Wang2020,
   title = {{基于晶振的远程时间同步参考源性能分析}},
   author = {王, 嘉琛 and 樊, 多盛 and 肖, 波 and 邓, 智峰 and 刘, 娅 and 李, 孝辉},
@@ -922,6 +1022,19 @@
   keywords = {flammable gas,gas detecting alarm,poisonous gas,可燃气体,有毒气体,气体检测报警},
   language = {中文;},
   number = {04}
+}
+
+@article{Yang2021a,
+  title = {{TOMCAT负载优化的研究与应用}},
+  author = {杨, 帅},
+  year = {2021},
+  pages = {122--123},
+  issn = {1001-2362},
+  abstract = {目前X厂使用Java与JSP开发的项目软件,多数以Tomcat作为Web容器。当应用系统访问量比较大的时,会遇到系统运行缓慢、内存溢出等问题。针对这一现象,探索出了一些优化Tomcat参数的技术方法,可以有效地提高其性能。},
+  journal = {信息系统工程},
+  keywords = {JVM,Tomcat,性能优化},
+  language = {中文;},
+  number = {01}
 }
 
 @phdthesis{Yuan2020,
