@@ -1,3 +1,11 @@
+---
+bibliography: [../ref.bib]
+fignos-cleveref: True
+fignos-caption-name: 图
+tablenos-cleveref: True
+tablenos-caption-name: 表
+---
+
 # 致谢
 
 行文至此，意味着我的大学生涯已经到达了终点。在这四年的大学学习期间，我得到了很多老师、同学和朋友的关怀和帮助。在学位论文即将完成之际，我要向所有在我大学期间给与我支持、帮助与鼓励的人们表示我最诚挚的谢意。
