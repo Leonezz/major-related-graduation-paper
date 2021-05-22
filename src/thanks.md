@@ -1,10 +1,3 @@
----
-bibliography: [../ref.bib]
-fignos-cleveref: True
-fignos-caption-name: 图
-tablenos-cleveref: True
-tablenos-caption-name: 表
----
 
 # 致谢
 

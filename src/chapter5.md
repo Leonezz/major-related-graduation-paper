@@ -1,8 +1,12 @@
 ---
 bibliography: [../ref.bib]
 fignos-cleveref: True
+fignos-number-by-section: True
+fignos-plus-name: 图
 fignos-caption-name: 图
 tablenos-cleveref: True
+tablenos-number-by-section: True
+tablenos-plus-name: 表
 tablenos-caption-name: 表
 ---
 

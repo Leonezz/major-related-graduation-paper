@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 #!/bin/python3
 
 import pathlib
@@ -14,8 +14,12 @@ if len(md_file_list) != 0:
                     ("---\n"
                      "bibliography: [../ref.bib]\n"
                      "fignos-cleveref: True\n"
+                     "fignos-number-by-section: True\n"
+                     "fignos-plus-name: 图\n"
                      "fignos-caption-name: 图\n"
                      "tablenos-cleveref: True\n"
+                     "tablenos-number-by-section: True\n"
+                     "tablenos-plus-name: 表\n"
                      "tablenos-caption-name: 表\n"
                      "---"), "\n").replace("---\nbibliography: [../ref.bib]\n---", "\n")
 
@@ -23,8 +27,12 @@ if len(md_file_list) != 0:
     result_file.write("---\n"
                       "bibliography: [../ref.bib]\n"
                       "fignos-cleveref: True\n"
+                      "fignos-number-by-section: True\n"
+                      "fignos-plus-name: 图\n"
                       "fignos-caption-name: 图\n"
                       "tablenos-cleveref: True\n"
+                      "tablenos-number-by-section: True\n"
+                      "tablenos-plus-name: 表\n"
                       "tablenos-caption-name: 表\n"
                       "---\n")
     result_file.write(content)
